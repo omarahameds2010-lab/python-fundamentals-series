@@ -1,0 +1,54 @@
+# ============================================================
+#  Python Fundamentals Series — Episode 01
+#  Concept  : Loops + Functions
+#  Program  : Score Analyzer
+#  Author   : Omar Ahmed
+#  GitHub   : github.com/omarahameds2010-lab
+# ============================================================
+
+def get_scores():        # بنعرّف function — كتلة كود ممكن نستدعيها بالاسم
+    """
+    Asks the user how many scores to enter,
+    collects them one by one using a loop,
+    then prints the total, average, and highest score.
+    No lists used — state tracked with two variables only.
+    """
+    count = int(input("How many scores will you enter? "))
+    # input() بتسأل المستخدم ويكتب رقم
+    # int() بتحوّل الإجابة من نص لرقم صحيح
+    # count بتحفظ العدد ده
+
+    total = 0       # متغير هيتجمع فيه كل الـ scores
+    highest = 0     # متغير هيحفظ أعلى score لقيناه
+
+    for i in range(count):
+    # for loop بتتكرر عدد مرات = count
+    # i بيبدأ من 0 ويوصل لـ count - 1
+
+        score = float(input(f"Enter score {i + 1}: "))
+        # f"..." ده f-string — بيحط قيمة i+1 جوه النص تلقائي
+        # float() بيقبل أرقام عشرية زي 85.5
+        # score بيحفظ الرقم اللي كتبه المستخدم
+
+        total += score
+        # += معناها total = total + score
+        # بنضيف الـ score الجديد للمجموع في كل دورة
+
+        if score > highest:     # لو الـ score الحالي أكبر من الأعلى
+            highest = score     # نحدّث الأعلى بالقيمة الجديدة
+
+    average = total / count
+    # بعد الـ loop خلصت — بنحسب المتوسط
+    # قسمة المجموع على عدد الـ scores
+
+    print(f"\nTotal:         {total}")
+    # \n = سطر فاضي قبل الطباعة عشان يبان واضح
+    # f-string بتحط قيمة total جوه النص
+
+    print(f"Average:       {average}")
+    print(f"Highest Score: {highest}")
+    # print() بتطبع أي حاجة على الشاشة
+
+get_scores()
+# بنستدعي الـ function عشان الكود يشتغل
+# من غير السطر ده مش هيحصل حاجة
